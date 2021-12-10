@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Fire
+  - Graspables
+  - Destination
+  - Door
+  - Drawer
+  - Handle
+  - Robot
+  - Ground
+  - Environment
+  - GraspingCandidatesPosition
+  - DestinationCandidates
+  - GraspingCandidates
+  - DummyGraspingCandidates
+  - MainMenu
+  - Moderator
+  - Avatar
+  - AudienceCamera
+  - GuidanceMessageText
+  - GuidanceMessagePanelForAvatar
+  - GuidanceMessagePanelForAudience
+  - Furniture
+  - NonDeductionCollider
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Environment
+  - Robot
+  - Effect
+  - AvatarUI
+  - Collider.AvatarOnly
+  - Avatar
+  - Graspables
+  - Furniture
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
