@@ -1,6 +1,12 @@
 # Human Navigation Cloud Edition
 
-This is the cloud edition of Human Navigation for administrators.
+This is the cloud edition of Human Navigation for **administrators**.
+
+## Prerequisites
+
+In addition to the Human Navitation prerequisite, Photon is also required.  
+For more information on Photon, please refer to the following page on SIGVerse.  
+http://www.sigverse.org/wiki/en/index.php?%28HSR%29Cleanup%20Task%20using%20Cloud%20and%20VR
 
 ## How to Build
 
