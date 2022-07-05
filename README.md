@@ -15,19 +15,19 @@ http://www.sigverse.org/wiki/en/index.php?%28HSR%29Cleanup%20Task%20using%20Clou
 1. Follow the normal Human Navigation procedure to import unitypackages.  
 https://github.com/RoboCupatHomeSim/human-navigation-unity#import-unitypackages
 1. Import PUN2 package.
-  1. Go to the following page.  
-  https://assetstore.unity.com/packages/tools/network/pun-2-free-119922
-  1. Download and import the asset.  
-  But the following should be unchecked when importing because these conflicts with other libraries.  
-    - Photon/PhotonLibs/WebSocket/websocket-sharp.dll
-    - Photon/PhotonUnityNetworking/Demos
-    - SteamVR
+	1. Go to the following page.  
+	https://assetstore.unity.com/packages/tools/network/pun-2-free-119922
+	1. Download and import the asset.  
+	But the following should be unchecked when importing because these conflicts with other libraries.  
+		- Photon/PhotonLibs/WebSocket/websocket-sharp.dll
+		- Photon/PhotonUnityNetworking/Demos
+		- SteamVR
 1. Click [Assets]-[Reimport All].
 1. Click [Reimport] button.
 1. Backup PUN2 package.  
 Only the latest version of PUN2 is distributed in the Asset Store, so make a backup.  
 On Windows, it exists in the following location  
-C:\Users\accountName\AppData\Roaming\Unity\Asset Store-5.x\Exit Games\ScriptingNetwork\PUN 2 - FREE.unitypackage
+`C:\Users\accountName\AppData\Roaming\Unity\Asset Store-5.x\Exit Games\ScriptingNetwork\PUN 2 - FREE.unitypackage`
 
 
 ### Server side
