@@ -13,7 +13,7 @@ http://www.sigverse.org/wiki/en/index.php?%28HSR%29Cleanup%20Task%20using%20Clou
 ### Import unitypackages
 
 1. Follow the normal Human Navigation procedure to import unitypackages.  
-https://github.com/RoboCupatHomeSim/human-navigation-unity#import-unitypackages
+https://github.com/RoboCupatHomeSim/human-navigation-unity#import-unitypackages  
 1. Import PUN2 package.
 	1. Go to the following page.  
 	https://assetstore.unity.com/packages/tools/network/pun-2-free-119922
@@ -29,14 +29,24 @@ Only the latest version of PUN2 is distributed in the Asset Store, so make a bac
 On Windows, it exists in the following location  
 `C:\Users\accountName\AppData\Roaming\Unity\Asset Store-5.x\Exit Games\ScriptingNetwork\PUN 2 - FREE.unitypackage`
 
+### Import executable file and dll for TTS
+1. Prepare "ConsoleSimpleTTS.exe" and "Interop.SpeechLib.dll".
+2. Copy those files to the [TTS] folder in the same directory as README.md.
 
-### Server side
-1. Uncheck [Project Settings]-[XR Plug-in Management]-[Initialize XR on Startup] checkbox, and then build.
-1. Open the file "Human Navigation_Data/boot.config".
+
+### Build for the Server
+1. **Uncheck** [Project Settings]-[XR Plug-in Management]-[Initialize XR on Startup] checkbox.
+1. Check [Project Settings]-[XR Plug-in Management]-[OpenVR Loader] checkbox.
+1. Build.
+1. Open the built file "Human Navigation_Data/boot.config".
 1. Delete the line "xrsdk-pre-init-library=XRSDKOpenVR".
+1. Copy the "TTS" folder into the build folder.
 
-### Client side
-1. Check [Project Settings]-[XR Plug-in Management]-[Initialize XR on Startup] checkbox, and then build.
+### Build for the Client
+1. Check [Project Settings]-[XR Plug-in Management]-[Initialize XR on Startup] checkbox.
+1. Check [Project Settings]-[XR Plug-in Management]-[OpenVR Loader] checkbox.
+1. Build.
+1. Copy the "TTS" folder into the build folder.
 
 ## How to Set Up
 
@@ -50,7 +60,7 @@ On Windows, it exists in the following location
 
 | key | val|
 | --- | --- |
-| punServer | IP address of the Windows server |
+| punServer | IP address of the PUN server (Windows server) |
 
 ## How to Execute
 
