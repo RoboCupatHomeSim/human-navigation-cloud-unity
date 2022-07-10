@@ -1,11 +1,7 @@
 using UnityEngine;
-using UnityEngine.Events;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
-using SIGVerse.Competition.HumanNavigation;
 using Valve.VR.InteractionSystem;
 using Valve.VR;
 
@@ -15,7 +11,11 @@ using Photon.Pun;
 
 namespace SIGVerse.Competition.HumanNavigation
 {
+#if SIGVERSE_PUN
 	public class HandDataUpdater : MonoBehaviourPun
+#else
+	public class HandDataUpdater : MonoBehaviour
+#endif
 	{
 		private const float ValueUpdateInterval = 0.2f; //[s]
 
@@ -36,9 +36,7 @@ namespace SIGVerse.Competition.HumanNavigation
 
 		private PunMode punMode;
 
-#if SIGVERSE_PUN
 		private float preTime = 0f;
-#endif
 
 		public void Awake()
 		{
@@ -85,15 +83,8 @@ namespace SIGVerse.Competition.HumanNavigation
 			this.preCurrentlyInteractingTag  = this.currentlyInteractingTag;
 		}
 
-		//public void UpdateModeratorData()
-		//{
-		//	this.HoldButtonDownForModerator = this.HoldButtonDown;
-		//	this.HoldButtonUpForModerator   = this.HoldButtonUp;
-		//}
 
-
-#if SIGVERSE_PUN
-		public void SetHandData
+		private void SetHandData
 		(
 			bool   handTriggerState, 
 			float  handTriggerValue, 
@@ -154,7 +145,9 @@ namespace SIGVerse.Competition.HumanNavigation
 
 
 		// There must be a PhotonView in the same object.
+#if SIGVERSE_PUN
 		[PunRPC]
+#endif
 		public void ForwardHandDataRPC 
 		(
 			bool handTriggerState,
@@ -184,7 +177,6 @@ namespace SIGVerse.Competition.HumanNavigation
 				farButtonPressed
 			);
 		}
-#endif
 	}
 }
 

@@ -1,9 +1,14 @@
 {
 	"teamName":"Hum@n Navigation",
 	"sessionTimeLimit":"180",
-	"recoverUsingScoreFile": false,
-	"maxNumberOfTrials": 6,
+	"maxNumberOfTrials": 8,
+	"recoverUsingScoreFile": true,
 	"playbackType": 0,
+	"punMode": 2, 
+	"punAppIdPun": "", 
+	"punUseNameServer": false, 
+	"punServer": "35.73.xxx.xxx", 
+	"punPort": 5055, 
 	"taskInfoList":[
 		{"environment":"ExampleLayoutHN01#01","target":"apple#01",                    "destination":"destination#01"},
 		{"environment":"LayoutHN01#01",       "target":"tumblerglass_c02#02",         "destination":"destination#01"},

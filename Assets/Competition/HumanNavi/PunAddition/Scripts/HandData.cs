@@ -1,10 +1,6 @@
 using UnityEngine;
-using UnityEngine.Events;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Photon.Pun;
 
 namespace SIGVerse.Competition.HumanNavigation
 {

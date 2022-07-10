@@ -4,11 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using SIGVerse.Common;
 using SIGVerse.Human.IK;
-using SIGVerse.Competition;
-using System.Linq;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
-using SIGVerse.Human.VR;
 using UnityEngine.XR.Management;
 using Photon.Pun;
 using UnityEngine.SpatialTracking;
@@ -32,7 +29,6 @@ namespace SIGVerse.Competition.HumanNavigation
 			if (HumanNaviConfig.Instance.configInfo.PunMode()!=PunMode.PunServer)
 			{
 				StartCoroutine(this.InitializeXR());
-//				StartCoroutine(this.StartXRCoroutine());
 
 				SteamVR_Actions.sigverse.Activate(SteamVR_Input_Sources.Any);
 			}
@@ -52,34 +48,8 @@ namespace SIGVerse.Competition.HumanNavigation
 				SIGVerseLogger.Error("xrManagerSettings.activeLoader == null"); yield break;
 			}
 
-			//this.activeLoader = xrManagerSettings.activeLoader;
-
-			//if (this.activeLoader == null)
-			//{
-			//	Debug.LogError("Initializing XR Failed.");
-			//	yield break;
-			//}
-
 			xrManagerSettings.StartSubsystems();
-
-			//yield return null;
 		}
-
-		//public IEnumerator StartXRCoroutine()
-		//{
-		//	Debug.Log("Initializing XR...");
-		//	yield return XRGeneralSettings.Instance.Manager.InitializeLoader();
-
-		//	if (XRGeneralSettings.Instance.Manager.activeLoader == null)
-		//	{
-		//		Debug.LogError("Initializing XR Failed. Check Editor or Player log for details.");
-		//	}
-		//	else
-		//	{
-		//		Debug.Log("Starting XR...");
-		//		XRGeneralSettings.Instance.Manager.StartSubsystems();
-		//	}
-		//}
 
 		void Start()
 		{
@@ -181,14 +151,6 @@ namespace SIGVerse.Competition.HumanNavigation
 				XRGeneralSettings.Instance.Manager.DeinitializeLoader();
 			}
 		}
-		//private void EnableCleanupAvatarVRHandControllerForSteamVR()
-		//{
-		//	CleanupAvatarVRHandControllerForSteamVR[] cleanupAvatarVRHandControllerForSteamVRs = this.ethan.GetComponents<CleanupAvatarVRHandControllerForSteamVR>();
-
-		//	foreach (CleanupAvatarVRHandControllerForSteamVR cleanupAvatarVRHandControllerForSteamVR in cleanupAvatarVRHandControllerForSteamVRs)
-		//	{
-		//		cleanupAvatarVRHandControllerForSteamVR.enabled = true;
-		//	}
-		//}
 	}
 }
+

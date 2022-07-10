@@ -3,11 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SIGVerse.Common;
-using SIGVerse.Competition.HumanNavigation;
-
-#if SIGVERSE_PUN
-using Photon.Pun;
-#endif
 
 namespace SIGVerse.Competition.HumanNavigation
 {

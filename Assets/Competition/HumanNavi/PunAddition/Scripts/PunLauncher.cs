@@ -15,7 +15,6 @@ using UnityEditor;
 #if SIGVERSE_PUN
 using Photon.Pun;
 using Photon.Realtime;
-using SIGVerse.Competition.HumanNavigation;
 using UnityEngine.SceneManagement;
 #endif
 
@@ -23,19 +22,13 @@ namespace SIGVerse.Competition.HumanNavigation
 {
 	public class PunLauncher : MonoBehaviourPunCallbacks
 	{
-//		public const string AvatarNameKey = "AvatarName";
-
-//		public const string HumanNamePrefix = "Human";
-//		public const string RobotNamePrefix = "HSR";
 		public const string HumanName = "Ethan";
 		public const string RobotName = "HSR";
-//		private const string SubViewControllerStr = "SubviewController";
 
 		[HeaderAttribute("Objects")]
 		public GameObject human;
 		public GameObject robot;
 
-//		public PunRpcManager rpcManager;
 		public HumanNaviSessionManager sessionManager;
 
 		public Button startButton;
@@ -43,12 +36,11 @@ namespace SIGVerse.Competition.HumanNavigation
 		[HeaderAttribute("Graspables")]
 		public GameObject[] rootsOfSyncTarget;
 
-//		[HideInInspector]
 		public List<GameObject> roomObjects;
 
 		// -----------------------
-#if SIGVERSE_PUN
 
+#if SIGVERSE_PUN
 		private List<GameObject> graspables;
 
 		void Awake()
@@ -78,8 +70,6 @@ namespace SIGVerse.Competition.HumanNavigation
 
 			PhotonNetwork.AutomaticallySyncScene = true;
 
-			//this.Connect();
-
 			// Check for duplication
 			List<string> duplicateNames = this.roomObjects.GroupBy(obj => obj.name).Where(g => g.Count() > 1).Select(g => g.Key).ToList();
 
@@ -94,17 +84,11 @@ namespace SIGVerse.Competition.HumanNavigation
 			this.Connect();
 		}
 
-		//void Update()
-		//{
-		//}
-
 		public void Connect()
 		{
 			SIGVerseLogger.Info("PUN Connect Start");
 
 			PhotonNetwork.GameVersion = PhotonNetwork.PhotonServerSettings.AppSettings.AppVersion;
-
-//			Debug.LogError("PhotonNetwork.GameVersion="+PhotonNetwork.GameVersion);
 
 			if (!PhotonNetwork.ConnectUsingSettings())
 			{
@@ -114,8 +98,6 @@ namespace SIGVerse.Competition.HumanNavigation
 
 		public override void OnConnectedToMaster()
 		{
-//			Debug.Log("OnConnectedToMaster RoomName=" + this.roomName);
-
 			PhotonNetwork.JoinOrCreateRoom("HumanNaviRoom" + String.Format("{0:D3}", HumanNaviConfig.Instance.numberOfTrials), new RoomOptions(), TypedLobby.Default);
 		}
 
@@ -136,11 +118,6 @@ namespace SIGVerse.Competition.HumanNavigation
 				this.sessionManager.TransferOwnershipOfDefaultEnvironment();
 
 				PhotonNetwork.NickName = HumanName;
-
-				//foreach (GameObject rootOfSyncTarget in this.rootsOfSyncTarget)
-				//{
-				//	rootOfSyncTarget.GetComponent<PhotonView>().TransferOwnership(PhotonNetwork.LocalPlayer);
-				//}
 			}
 			else if (HumanNaviConfig.Instance.configInfo.PunMode() == PunMode.PunServer)
 			{
@@ -150,12 +127,6 @@ namespace SIGVerse.Competition.HumanNavigation
 				}
 
 				PhotonNetwork.NickName = RobotName;
-
-////			PhotonNetwork.NickName = RobotNamePrefix + String.Format("{0:D2}", PhotonNetwork.LocalPlayer.ActorNumber);
-//				PhotonNetwork.NickName = RobotName;
-//				ExitGames.Client.Photon.Hashtable customPropertie = new ExitGames.Client.Photon.Hashtable();
-//				customPropertie.Add(AvatarNameKey, PhotonNetwork.NickName + "#" + this.imitator.name);
-//				PhotonNetwork.LocalPlayer.SetCustomProperties(customPropertie);
 
 				foreach (GameObject roomObject in this.roomObjects)
 				{
@@ -221,89 +192,34 @@ namespace SIGVerse.Competition.HumanNavigation
 			}
 		}
 
-
-//		public void TransferOwnershipOfGraspables(HandData hand)
-//		{
-//			if (hand.handTriggerDownForModerator && hand.isInteracting)
-//			{
-//				if (hand.currentlyInteractingTag == "Graspables")
-//				{
-//					GameObject graspedObj = this.graspables.SingleOrDefault(obj => obj.name == hand.currentlyInteractingName);
-
-//					if (graspedObj.name == hand.currentlyInteractingName)
-//					{
-//						graspedObj.GetComponentInChildren<PhotonView>().TransferOwnership(PhotonNetwork.LocalPlayer);
-
-//						//graspedObj.GetComponent<Rigidbody>().useGravity = true;
-//						//graspedObj.GetComponent<Rigidbody>().isKinematic = false;
-//						//graspedObj.GetComponentInChildren<PhotonView>().TransferOwnership(PhotonNetwork.LocalPlayer);
-
-////						this.rpcManager.ForwardObjectGrasp(graspedObj.name);
-//					}
-//				}
-//			}
-//		}
-
-		public void DesableRigidbody(string objectName)
-		{
-			GameObject graspedObj = this.graspables.SingleOrDefault(obj => obj.name == objectName);
-
-			if (graspedObj.name == objectName)
-			{
-				if (!graspedObj.GetComponentInChildren<PhotonView>().IsMine)
-				{
-					graspedObj.GetComponent<Rigidbody>().useGravity = false;
-					graspedObj.GetComponent<Rigidbody>().isKinematic = true;
-				}
-			}
-		}
-
-		//public override void OnPlayerEnteredRoom(Player newPlayer)
+		//public void DesableRigidbody(string objectName)
 		//{
+		//	GameObject graspedObj = this.graspables.SingleOrDefault(obj => obj.name == objectName);
+
+		//	if (graspedObj.name == objectName)
+		//	{
+		//		if (!graspedObj.GetComponentInChildren<PhotonView>().IsMine)
+		//		{
+		//			graspedObj.GetComponent<Rigidbody>().useGravity = false;
+		//			graspedObj.GetComponent<Rigidbody>().isKinematic = true;
+		//		}
+		//	}
 		//}
-
-		//public override void OnPlayerLeftRoom(Player otherPlayer)
-		//{
-		//}
-
-		//public IEnumerator Disconnect()
-		//{
-		//	yield return new WaitForSeconds(1.0f);
-
-		//	PhotonNetwork.LeaveRoom();
-		//	PhotonNetwork.Disconnect();
-		//}
-
 
 		public void SetRoomObjects(List<GameObject> roomObjects)
 		{
 			this.roomObjects = roomObjects;
 		}
 
-		public static void AddPhotonTransformView(PhotonView photonView, GameObject synchronizedTarget, bool syncPos = false, bool syncRot = true)
-		{
-			PhotonTransformView photonTransformView = synchronizedTarget.AddComponent<PhotonTransformView>();
-
-			photonTransformView.m_SynchronizePosition = syncPos;
-			photonTransformView.m_SynchronizeRotation = syncRot;
-			photonTransformView.m_SynchronizeScale = false;
-
-			photonView.ObservedComponents.Add(photonTransformView);
-		}
-
-		//public static void EnableSubview(GameObject operationTarget)
+		//public static void AddPhotonTransformView(PhotonView photonView, GameObject synchronizedTarget, bool syncPos = false, bool syncRot = true)
 		//{
-		//	operationTarget.transform.root.Find(SubViewControllerStr).gameObject.SetActive(true);
+		//	PhotonTransformView photonTransformView = synchronizedTarget.AddComponent<PhotonTransformView>();
 
-		//	// Update the camera list before enable SubviewOptionController
-		//	GameObject.FindObjectOfType<SubviewManager>().UpdateCameraList();
+		//	photonTransformView.m_SynchronizePosition = syncPos;
+		//	photonTransformView.m_SynchronizeRotation = syncRot;
+		//	photonTransformView.m_SynchronizeScale = false;
 
-		//	SubviewOptionController[] subviewOptionControllers = operationTarget.GetComponentsInChildren<SubviewOptionController>();
-
-		//	foreach (SubviewOptionController subviewOptionController in subviewOptionControllers)
-		//	{
-		//		subviewOptionController.enabled = true;
-		//	}
+		//	photonView.ObservedComponents.Add(photonTransformView);
 		//}
 #endif
 	}
@@ -332,7 +248,7 @@ namespace SIGVerse.Competition.HumanNavigation
 					RemoveScripts<PhotonTransformView>();
 					RemoveScripts<PhotonRigidbodyView>();
 					RemoveScripts<PhotonView>();
-					//					RemoveScripts<PunOwnerChangerForObject>();
+//					RemoveScripts<PunOwnerChangerForObject>();
 
 					// Add photon scripts
 					List<GameObject> roomObjects = new List<GameObject>();

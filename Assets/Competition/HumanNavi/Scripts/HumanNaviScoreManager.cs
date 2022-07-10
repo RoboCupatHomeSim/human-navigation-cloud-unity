@@ -120,6 +120,12 @@ namespace SIGVerse.Competition.HumanNavigation
 
 			this.panelMainController = this.mainMenu.GetComponent<PanelMainController>();
 
+			if(HumanNaviConfig.Instance.configInfo.PunMode() == PunMode.NotUsed)
+			{
+				this.mainMenu.GetComponent<PanelScoreController>().DontUsePun();
+			}
+			
+
 			this.timeIsUpDestinations = new List<GameObject>();
 			foreach (string timeIsUpDestinationTag in this.timeIsUpDestinationTags)
 			{

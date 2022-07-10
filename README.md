@@ -8,6 +8,8 @@ In addition to the Human Navigation prerequisite, PUN2(Photon Unity Networking 2
 For more information on PUN2, please refer to the following page on SIGVerse.  
 http://www.sigverse.org/wiki/en/index.php?%28HSR%29Cleanup%20Task%20using%20Cloud%20and%20VR
 
+Photon Cloud is NOT used. Launch Photon Server on a Windows machine.
+
 ## How to Build
 
 ### Import unitypackages
@@ -39,7 +41,9 @@ On Windows, it exists in the following location
 1. Check [Project Settings]-[XR Plug-in Management]-[OpenVR Loader] checkbox.
 1. Build.
 1. Open the built file "Human Navigation_Data/boot.config".
-1. Delete the line "xrsdk-pre-init-library=XRSDKOpenVR".
+1. Delete the line "xrsdk-pre-init-library=XRSDKOpenVR".  
+(This is related to the following issue  
+https://github.com/ValveSoftware/unity-xr-plugin/issues/80)
 1. Copy the "TTS" folder into the build folder.
 
 ### Build for the Client

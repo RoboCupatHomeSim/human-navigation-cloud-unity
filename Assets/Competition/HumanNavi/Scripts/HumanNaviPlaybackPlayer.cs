@@ -12,7 +12,7 @@ namespace SIGVerse.Competition.HumanNavigation
 	[RequireComponent(typeof (HumanNaviPlaybackCommon))]
 	public class HumanNaviPlaybackPlayer : TrialPlaybackPlayer
 	{
-		[HeaderAttribute("Handyman Objects")]
+		[HeaderAttribute("Human Navi Objects")]
 		public HumanNaviScoreManager scoreManager;
 
 		[HeaderAttribute("Session Manager")]
@@ -77,6 +77,8 @@ namespace SIGVerse.Competition.HumanNavigation
 				//UnityEngine.XR.XRSettings.enabled = false;
 
 				this.timeLimit = HumanNaviConfig.Instance.configInfo.sessionTimeLimit;
+
+				this.mainMenu.GetComponentInChildren<PanelNoticeController>().SetMaxDuration(3.0f);
 			}
 		}
 
@@ -91,10 +93,10 @@ namespace SIGVerse.Competition.HumanNavigation
 			//this.transformController   = new PlaybackTransformEventController  (common);  // Transform
 			this.videoPlayerController = new PlaybackVideoPlayerEventController(common);  // Video Player
 
-			this.taskInfoController = new PlaybackTaskInfoEventController(this.teamNameText, this.trialNumberText, this.timeLeftValText, this.taskMessageText);
-			this.scoreController = new PlaybackScoreEventController(this.scoreText, this.totalText); // Score
-			this.panelNoticeController = new PlaybackPanelNoticeEventController(this, this.mainMenu);      // Notice of a Panel
-			this.collisionController = new PlaybackCollisionEventController(this.collisionEffect);       // Collision
+			this.taskInfoController     = new PlaybackTaskInfoEventController(this.teamNameText, this.trialNumberText, this.timeLeftValText, this.taskMessageText);
+			this.scoreController        = new PlaybackScoreEventController(this.scoreText, this.totalText); // Score
+			this.panelNoticeController  = new PlaybackPanelNoticeEventController(this, this.mainMenu);      // Notice of a Panel
+			this.collisionController    = new PlaybackCollisionEventController(this.collisionEffect);       // Collision
 			this.hsrCollisionController = new PlaybackHsrCollisionEventController(this.collisionEffect);    // HSR Collision
 		}
 
@@ -130,11 +132,11 @@ namespace SIGVerse.Competition.HumanNavigation
 		{
 			return Mathf.Max(
 				base.GetTotalTime(),
-				this.taskInfoController.GetTotalTime(),
-				this.scoreController.GetTotalTime(),
-				this.panelNoticeController.GetTotalTime(),
-				this.collisionController.GetTotalTime(),
-				this.hsrCollisionController.GetTotalTime(),
+				this.taskInfoController       .GetTotalTime(),
+				this.scoreController          .GetTotalTime(),
+				this.panelNoticeController    .GetTotalTime(),
+				this.collisionController      .GetTotalTime(),
+				this.hsrCollisionController   .GetTotalTime(),
 				this.guidanceMessageController.GetTotalTime()
 			);
 		}
