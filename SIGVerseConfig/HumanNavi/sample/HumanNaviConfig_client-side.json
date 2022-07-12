@@ -2,7 +2,7 @@
 	"teamName":"Hum@n Navigation",
 	"sessionTimeLimit":"180",
 	"maxNumberOfTrials": 8,
-	"recoverUsingScoreFile": true,
+	"recoverUsingScoreFile": false,
 	"playbackType": 0,
 	"punMode": 2, 
 	"punAppIdPun": "", 
