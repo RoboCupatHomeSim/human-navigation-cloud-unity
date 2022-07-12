@@ -54,6 +54,12 @@ https://github.com/ValveSoftware/unity-xr-plugin/issues/80)
 
 ## How to Set Up
 
+There are two config files on GitHub, one for the server (HumanNaviConfig_server-side.json) and one for the client (HumanNaviConfig_client-side.json).  
+Please rename them to HumanNaviConfig.json.
+
+Also note that in the competition, recoverUsingScoreFile=true.  
+Please refer to another document for detailed configuration of the config file.
+
 ### SIGVerseConfig.json of the server side
 
 | key | val|
@@ -75,6 +81,11 @@ https://github.com/ValveSoftware/unity-xr-plugin/issues/80)
 1. Start the Human Navigation server side on the Windows server.
 1. Start the Human Navigation client side on your local PC.
 1. Click the [Session Start] button of the Human Navigation client side.
+
+## Notes
+- Playback function is not yet completed in this Cloud version.  
+If you want to playback, please use the normal version of Human Navigation.
+
 
 ## License
 
