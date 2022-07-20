@@ -8,7 +8,8 @@ In addition to the Human Navigation prerequisite, PUN2(Photon Unity Networking 2
 For more information on PUN2, please refer to the following page on SIGVerse.  
 http://www.sigverse.org/wiki/en/index.php?%28HSR%29Cleanup%20Task%20using%20Cloud%20and%20VR
 
-Photon Cloud is **NOT** used. Launch Photon Server on a Windows machine.
+Photon Cloud is **NOT** used. Launch Photon Server on a Windows machine.  
+For more information about Photon Server, please refer to the link above.
 
 ## How to Build
 
