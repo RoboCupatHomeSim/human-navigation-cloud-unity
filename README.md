@@ -69,8 +69,8 @@ https://github.com/ValveSoftware/unity-xr-plugin/issues/80)
 
 ## How to Set Up
 
-There are two config files on GitHub, one for the server (HumanNaviConfig_server-side.json) and one for the client (HumanNaviConfig_client-side.json).  
-Please rename them to HumanNaviConfig.json.
+There are two example config files on GitHub, one for the server (HumanNaviConfig_server-side.json) and one for the client (HumanNaviConfig_client-side.json).  
+Please rewrite HumanNaviConfig.json with reference to these files.
 
 Also note that in the competition, recoverUsingScoreFile=true.  
 Please refer to another document for detailed configuration of the config file.
