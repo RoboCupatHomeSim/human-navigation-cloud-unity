@@ -8,7 +8,7 @@ In addition to the Human Navigation prerequisite, PUN2(Photon Unity Networking 2
 For more information on PUN2, please refer to the following page on SIGVerse.  
 http://www.sigverse.org/wiki/en/index.php?%28HSR%29Cleanup%20Task%20using%20Cloud%20and%20VR
 
-Photon Cloud is NOT used. Launch Photon Server on a Windows machine.
+Photon Cloud is **NOT** used. Launch Photon Server on a Windows machine.
 
 ## How to Build
 
@@ -39,6 +39,7 @@ https://github.com/ValveSoftware/steamvr_unity_plugin/releases/download/2.7.3/st
 	`C:\Users\accountName\AppData\Roaming\Unity\Asset Store-5.x\Exit Games\ScriptingNetwork\PUN 2 - FREE.unitypackage`
 1. Click [Assets]-[**Reimport All**].
 1. Click [**Reimport**] button.
+1. In the "PUN Setup" window, please [Skip] and then [Close].
 1. Click [Edit]-[Project Settings...].
 1. Check [XR Plug-in Management]-[Initialize XR on Startup].
 1. Check [XR Plug-in Management]-[Plug-in Providers]-[OpenVR Loader].
