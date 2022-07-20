@@ -14,8 +14,17 @@ Photon Cloud is NOT used. Launch Photon Server on a Windows machine.
 
 ### Import unitypackages
 
-1. Follow the normal Human Navigation procedure to import unitypackages.  
-https://github.com/RoboCupatHomeSim/human-navigation-unity#import-unitypackages  
+1. Download SteamVR Unity Plugin v2.7.3 from the following link.  
+https://github.com/ValveSoftware/steamvr_unity_plugin/releases/download/2.7.3/steamvr_2_7_3.unitypackage
+1. Open this project with Unity.
+1. Click [**Continue**] in the [Unity Package Manager Error] window.
+1. Click [**Ignore**] in the [Enter Safe Mode?] window.
+1. Click [Assets]-[Import Package]-[Custom Package...].
+1. Select a common unitypackage (e.g. robocup-common.unitypackage) and open the file.
+1. Click [Import] button.
+1. Click [Assets]-[Import Package]-[Custom Package...].
+1. Select the steamvr_2_7_3.unitypackage and open the file.
+1. Click [Import] button.
 1. Import PUN2 package.
 	1. Go to the following page.  
 	https://assetstore.unity.com/packages/tools/network/pun-2-free-119922
@@ -24,12 +33,17 @@ https://github.com/RoboCupatHomeSim/human-navigation-unity#import-unitypackages
 		- Photon/PhotonLibs/WebSocket/websocket-sharp.dll
 		- Photon/PhotonUnityNetworking/Demos
 		- SteamVR
+	1. Backup PUN2 package.  
+	Only the latest version of PUN2 is distributed in the Asset Store, so make a backup.  
+	On Windows, it exists in the following location  
+	`C:\Users\accountName\AppData\Roaming\Unity\Asset Store-5.x\Exit Games\ScriptingNetwork\PUN 2 - FREE.unitypackage`
 1. Click [Assets]-[**Reimport All**].
 1. Click [**Reimport**] button.
-1. Backup PUN2 package.  
-Only the latest version of PUN2 is distributed in the Asset Store, so make a backup.  
-On Windows, it exists in the following location  
-`C:\Users\accountName\AppData\Roaming\Unity\Asset Store-5.x\Exit Games\ScriptingNetwork\PUN 2 - FREE.unitypackage`
+1. Click [Edit]-[Project Settings...].
+1. Check [XR Plug-in Management]-[Initialize XR on Startup].
+1. Check [XR Plug-in Management]-[Plug-in Providers]-[OpenVR Loader].
+1. Close [Project Settings] Window.
+1. Please confirm that no error occurred in Console window.
 
 ### Import executable file and dll for TTS
 1. Prepare "ConsoleSimpleTTS.exe" and "Interop.SpeechLib.dll".
