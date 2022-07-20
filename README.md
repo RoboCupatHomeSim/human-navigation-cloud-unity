@@ -24,8 +24,8 @@ https://github.com/RoboCupatHomeSim/human-navigation-unity#import-unitypackages
 		- Photon/PhotonLibs/WebSocket/websocket-sharp.dll
 		- Photon/PhotonUnityNetworking/Demos
 		- SteamVR
-1. Click [Assets]-[Reimport All].
-1. Click [Reimport] button.
+1. Click [Assets]-[**Reimport All**].
+1. Click [**Reimport**] button.
 1. Backup PUN2 package.  
 Only the latest version of PUN2 is distributed in the Asset Store, so make a backup.  
 On Windows, it exists in the following location  
