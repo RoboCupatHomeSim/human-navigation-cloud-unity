@@ -1,7 +1,7 @@
 {
 	"teamName":"Hum@n Navigation",
 	"sessionTimeLimit":"180",
-	"maxNumberOfTrials": 8,
+	"maxNumberOfTrials": 6,
 	"recoverUsingScoreFile": false,
 	"playbackType": 1,
 	"punMode": 1, 
