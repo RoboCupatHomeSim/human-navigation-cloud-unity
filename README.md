@@ -101,6 +101,9 @@ Please refer to another document for detailed configuration of the config file.
 ## Notes
 - Playback function is not yet completed in this Cloud version.  
 If you want to playback, please use the normal version of Human Navigation.
+- If you want to use the translation feature, see below.  
+https://github.com/RoboCupatHomeSim/human-navigation-ros/wiki/RosMessage#guidance-message  
+https://github.com/RoboCupatHomeSim/translation-library-for-human-navi/wiki
 
 
 ## License
